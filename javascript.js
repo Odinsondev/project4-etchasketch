@@ -27,7 +27,9 @@ function createGrid () {
 
 createGrid();
 
-//shade
+
+
+//shade square blue
 
 let square = document.getElementsByClassName('gridSquare');
 
@@ -44,6 +46,10 @@ function shade() {
 }
 
 shade();
+
+//shade square with random RGB
+
+
 
 //button1 - grid size selection prompt
 
@@ -75,6 +81,8 @@ function deleteGrid() {
     container.removeChild(row[i]);
   }
 }
+
+
 
 
 //button2 - clear grid
