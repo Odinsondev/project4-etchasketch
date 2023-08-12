@@ -45,17 +45,25 @@ function shade1() {
   for (let i = 0; i < totalSquares; i++) {
     square[i].addEventListener('mouseover', shadeColor1);
     function shadeColor1() {
-      square[i].style.backgroundColor = 'CornflowerBlue';
-      square[i].style.border = '1px solid rgb(127, 166, 238)';
+      if (currentShade === 2 || currentShade === 3 || 
+        currentShade === 4) {    //stops for loop when other functions
+        return
+      } else {
+        square[i].style.backgroundColor = 'rgb(100, 149, 237, 1)';
+        square[i].style.border = '1px solid rgb(127, 166, 238)';
+        square[i].style.opacity = '1'
+        console.log("shade1 loop running");
+      }
     }
   }
 }
 
-shade1();
+//shade1();
 
-//shade square with random RGB
+//shade2 - shade square with random RGB
 
 function shade2() {
+
 
   currentShade = 2;
   console.log(currentShade);
@@ -65,19 +73,81 @@ function shade2() {
   for (let i = 0; i < totalSquares; i++) {
     square[i].addEventListener('mouseover', shadeColor2);
     function shadeColor2() {
-
-      let red = Math.floor(Math.random() * 256);
-      let green = Math.floor(Math.random() * 256);
-      let blue = Math.floor(Math.random() * 256);
-      let randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
-    
-      square[i].style.backgroundColor = randomColor;
-      square[i].style.border = '1px solid rgb(228, 240, 200)';
+      if (currentShade === 1 || currentShade === 3 || 
+        currentShade === 4) {    //stops for loop when other functions
+        return
+      } else {
+        let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
+        let randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+      
+        square[i].style.backgroundColor = randomColor;
+        square[i].style.border = '1px solid rgb(228, 240, 200)';
+        square[i].style.opacity = '1'
+        console.log("shade2 loop running");
+      }
     }
   }
 }
 
-//shade2();
+//shade3 - darken square
+
+function shade3() {
+
+  currentShade = 3;
+  console.log(currentShade);
+
+  let totalSquares = sideSquares * sideSquares; //added as otherwise function will use old value
+
+  for (let i = 0; i < totalSquares; i++) {
+    square[i].addEventListener('mouseover', shadeColor3);
+    function shadeColor3() {
+      if (currentShade === 1 || currentShade === 2 || 
+        currentShade === 4) {    //stops for loop when other functions
+        return
+      } else {
+        let opacity1 = Number(window.getComputedStyle(square[i]).getPropertyValue('opacity'));
+        opacity2 = opacity1 - 0.1;
+        square[i].style.opacity = opacity2
+        square[i].style.border = '1px solid rgb(228, 240, 200)';
+        console.log("shade3 loop running");
+      }
+    }
+  }
+}
+
+//shade4 - greens
+
+function shade4() {
+
+
+  currentShade = 4;
+  console.log(currentShade);
+
+  let totalSquares = sideSquares * sideSquares; //added as otherwise function will use old value
+
+  for (let i = 0; i < totalSquares; i++) {
+    square[i].addEventListener('mouseover', shadeColor4);
+    function shadeColor4() {
+      if (currentShade === 1 || currentShade === 2 || 
+        currentShade === 3) {    //stops for loop when other functions
+        return
+      } else {
+        let red = Math.floor(Math.random() * 30);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 30);
+        let randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+      
+        square[i].style.backgroundColor = randomColor;
+        square[i].style.border = '1px solid rgb(228, 240, 200)';
+        square[i].style.opacity = '1'
+        console.log("shade2 loop running");
+      }
+    }
+  }
+}
+
 
 //switch between shade methods
 
@@ -85,8 +155,13 @@ function shade2() {
 function switchShade() {
   let button3 = document.getElementById('button3');
   let button4 = document.getElementById('button4');
+  let button5 = document.getElementById('button5');
+  let button6 = document.getElementById('button6');
+
   button3.addEventListener('click', shade1);
   button4.addEventListener('click', shade2);
+  button5.addEventListener('click', shade3);
+  button6.addEventListener('click', shade4);
 
 }
 
@@ -106,10 +181,12 @@ function getSize() {
     sideSquares = sideSquares2;
     createGrid();
 
-    if (currentShade ===1) {
+    if (currentShade === 1) {
       shade1();
-    } else {
+    } else if (currentShade === 2) {
       shade2();
+    } else {
+      shade3();
     }
     
   } else {
@@ -118,8 +195,10 @@ function getSize() {
     createGrid();
     if (currentShade ===1) {
       shade1();
-    } else {
+    } else if (currentShade === 2) {
       shade2();
+    } else {
+      shade3();
     }
   }
 }
@@ -148,5 +227,7 @@ function clearField() {
   for (let i = 0; i < totalSquares; i++) {
     square[i].style.backgroundColor = '#f2f6e0';
     square[i].style.border = '1px solid rgb(228, 240, 200)';
+    square[i].style.opacity = '1'
+
   }
 }
