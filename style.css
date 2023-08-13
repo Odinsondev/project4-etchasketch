@@ -74,6 +74,14 @@ button:active {
   margin: 10px;
 }
 
+#button7 {
+  height: 80px;
+}
+
+#color-picker {
+  margin: 5px;
+}
+
 .grid-container {
   align-self: center;
   display: flex;

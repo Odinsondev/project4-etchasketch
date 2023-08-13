@@ -45,12 +45,11 @@ function shade1() {
   for (let i = 0; i < totalSquares; i++) {
     square[i].addEventListener('mouseover', shadeColor1);
     function shadeColor1() {
-      if (currentShade === 2 || currentShade === 3 || 
-        currentShade === 4) {    //stops for loop when other functions
+      if (currentShade !== 1) {    //stops for loop when other functions
         return
       } else {
         square[i].style.backgroundColor = 'rgb(100, 149, 237, 1)';
-        square[i].style.border = '1px solid rgb(127, 166, 238)';
+        //square[i].style.border = '1px solid rgb(127, 166, 238)';
         square[i].style.opacity = '1'
         console.log("shade1 loop running");
       }
@@ -73,8 +72,7 @@ function shade2() {
   for (let i = 0; i < totalSquares; i++) {
     square[i].addEventListener('mouseover', shadeColor2);
     function shadeColor2() {
-      if (currentShade === 1 || currentShade === 3 || 
-        currentShade === 4) {    //stops for loop when other functions
+      if (currentShade !== 2) {    //stops for loop when other functions
         return
       } else {
         let red = Math.floor(Math.random() * 256);
@@ -83,7 +81,7 @@ function shade2() {
         let randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
       
         square[i].style.backgroundColor = randomColor;
-        square[i].style.border = '1px solid rgb(228, 240, 200)';
+        //square[i].style.border = '1px solid rgb(228, 240, 200)';
         square[i].style.opacity = '1'
         console.log("shade2 loop running");
       }
@@ -103,14 +101,13 @@ function shade3() {
   for (let i = 0; i < totalSquares; i++) {
     square[i].addEventListener('mouseover', shadeColor3);
     function shadeColor3() {
-      if (currentShade === 1 || currentShade === 2 || 
-        currentShade === 4) {    //stops for loop when other functions
+      if (currentShade !== 3) {    //stops for loop when other functions
         return
       } else {
         let opacity1 = Number(window.getComputedStyle(square[i]).getPropertyValue('opacity'));
         opacity2 = opacity1 - 0.1;
         square[i].style.opacity = opacity2
-        square[i].style.border = '1px solid rgb(228, 240, 200)';
+        //square[i].style.border = '1px solid rgb(228, 240, 200)';
         console.log("shade3 loop running");
       }
     }
@@ -130,8 +127,7 @@ function shade4() {
   for (let i = 0; i < totalSquares; i++) {
     square[i].addEventListener('mouseover', shadeColor4);
     function shadeColor4() {
-      if (currentShade === 1 || currentShade === 2 || 
-        currentShade === 3) {    //stops for loop when other functions
+      if (currentShade !== 4) {    //stops for loop when other functions
         return
       } else {
         let red = Math.floor(Math.random() * 30);
@@ -140,9 +136,35 @@ function shade4() {
         let randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
       
         square[i].style.backgroundColor = randomColor;
-        square[i].style.border = '1px solid rgb(228, 240, 200)';
+        //square[i].style.border = '1px solid rgb(228, 240, 200)';
         square[i].style.opacity = '1'
-        console.log("shade2 loop running");
+        console.log("shade4 loop running");
+      }
+    }
+  }
+}
+
+//shade5 - color picker
+
+
+function shade5() {
+
+  currentShade = 5;
+  console.log(currentShade);
+
+  let totalSquares = sideSquares * sideSquares; //added as otherwise function will use old value
+
+  for (let i = 0; i < totalSquares; i++) {
+    square[i].addEventListener('mouseover', shadeColor5);
+    function shadeColor5() {
+      if (currentShade !== 5) {    //stops for loop when other functions
+        return
+      } else {
+        let colorValue = (document.getElementById('color-picker').value)
+        square[i].style.backgroundColor = colorValue;
+        //square[i].style.border = '1px solid rgb(228, 240, 200)';
+        square[i].style.opacity = '1'
+        console.log("shade5 loop running");
       }
     }
   }
@@ -157,11 +179,16 @@ function switchShade() {
   let button4 = document.getElementById('button4');
   let button5 = document.getElementById('button5');
   let button6 = document.getElementById('button6');
+  let colorPicker = document.getElementById('color-picker');
+  let button7 = document.getElementById('button7')
 
   button3.addEventListener('click', shade1);
   button4.addEventListener('click', shade2);
   button5.addEventListener('click', shade3);
   button6.addEventListener('click', shade4);
+  colorPicker.addEventListener('input', shade5);
+  button7.addEventListener('click', shade5);
+
 
 }
 
