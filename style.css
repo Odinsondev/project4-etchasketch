@@ -44,10 +44,10 @@ button {
   font-weight: bold;
   color: rgb(32, 41, 47);
   width: 140px;
-  height: 40px;
+  height: 35px;
   border-radius: 10px;
   border: 1px solid gainsboro;
-  margin: 10px;
+  margin: 5px;
 }
 
 button:hover {
@@ -56,10 +56,10 @@ button:hover {
   font-weight: bold;
   color: rgb(32, 41, 47);
   width: 140px;
-  height: 40px;
+  height: 35px;
   border-radius: 10px;
   border: 1px solid gainsboro;
-  margin: 10px;
+  margin: 5px;
 }
 
 button:active {
@@ -68,10 +68,10 @@ button:active {
   font-weight: bold;
   color: rgb(32, 41, 47);
   width: 140px;
-  height: 40px;
+  height: 35px;
   border-radius: 10px;
   border: 1px solid gainsboro;
-  margin: 10px;
+  margin: 5px;
 }
 
 #button7 {
@@ -81,6 +81,15 @@ button:active {
 #color-picker {
   margin: 5px;
 }
+
+#button6,
+#button8,
+#button9,
+#button10 {
+  width: 63px;
+  font-size: 12px;
+}
+
 
 .grid-container {
   align-self: center;

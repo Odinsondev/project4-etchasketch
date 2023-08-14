@@ -48,7 +48,7 @@ function shade1() {
       if (currentShade !== 1) {    //stops for loop when other functions
         return
       } else {
-        square[i].style.backgroundColor = 'rgb(100, 149, 237, 1)';
+        square[i].style.backgroundColor = 'rgb(110, 110, 110, 1)';
         //square[i].style.border = '1px solid rgb(127, 166, 238)';
         square[i].style.opacity = '1'
         console.log("shade1 loop running");
@@ -106,6 +106,7 @@ function shade3() {
       } else {
         let opacity1 = Number(window.getComputedStyle(square[i]).getPropertyValue('opacity'));
         opacity2 = opacity1 - 0.1;
+        console.log(opacity2)
         square[i].style.opacity = opacity2
         //square[i].style.border = '1px solid rgb(228, 240, 200)';
         console.log("shade3 loop running");
@@ -131,7 +132,7 @@ function shade4() {
         return
       } else {
         let red = Math.floor(Math.random() * 30);
-        let green = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * (256 - 150) + 150);
         let blue = Math.floor(Math.random() * 30);
         let randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
       
@@ -170,6 +171,95 @@ function shade5() {
   }
 }
 
+//shade6 - reds
+
+function shade6() {
+
+
+  currentShade = 6;
+  console.log(currentShade);
+
+  let totalSquares = sideSquares * sideSquares; //added as otherwise function will use old value
+
+  for (let i = 0; i < totalSquares; i++) {
+    square[i].addEventListener('mouseover', shadeColor6);
+    function shadeColor6() {
+      if (currentShade !== 6) {    //stops for loop when other functions
+        return
+      } else {
+        let red = Math.floor(Math.random() * (256 - 150) + 150);
+        let green = Math.floor(Math.random() * 30);
+        let blue = Math.floor(Math.random() * 30);
+        let randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+      
+        square[i].style.backgroundColor = randomColor;
+        //square[i].style.border = '1px solid rgb(228, 240, 200)';
+        square[i].style.opacity = '1'
+        console.log("shade6 loop running");
+      }
+    }
+  }
+}
+
+//shade7 - blues
+
+function shade7() {
+
+
+  currentShade = 7;
+  console.log(currentShade);
+
+  let totalSquares = sideSquares * sideSquares; //added as otherwise function will use old value
+
+  for (let i = 0; i < totalSquares; i++) {
+    square[i].addEventListener('mouseover', shadeColor7);
+    function shadeColor7() {
+      if (currentShade !== 7) {    //stops for loop when other functions
+        return
+      } else {
+        let red = Math.floor(Math.random() * 30);
+        let green = Math.floor(Math.random() * 30);
+        let blue = Math.floor(Math.random() * (256 - 150) + 150);
+        let randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+      
+        square[i].style.backgroundColor = randomColor;
+        //square[i].style.border = '1px solid rgb(228, 240, 200)';
+        square[i].style.opacity = '1'
+        console.log("shade7 loop running");
+      }
+    }
+  }
+}
+
+//shade8 - yellows
+
+function shade8() {
+
+
+  currentShade = 8;
+  console.log(currentShade);
+
+  let totalSquares = sideSquares * sideSquares; //added as otherwise function will use old value
+
+  for (let i = 0; i < totalSquares; i++) {
+    square[i].addEventListener('mouseover', shadeColor8);
+    function shadeColor8() {
+      if (currentShade !== 8) {    //stops for loop when other functions
+        return
+      } else {
+        let red = Math.floor(Math.random() * (256 - 200) + 200);
+        let green = Math.floor(Math.random() * (256 - 200) + 200);
+        let blue = Math.floor(Math.random() * 0);
+        let randomColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+      
+        square[i].style.backgroundColor = randomColor;
+        //square[i].style.border = '1px solid rgb(228, 240, 200)';
+        square[i].style.opacity = '1'
+        console.log("shade8 loop running");
+      }
+    }
+  }
+}
 
 //switch between shade methods
 
@@ -180,7 +270,11 @@ function switchShade() {
   let button5 = document.getElementById('button5');
   let button6 = document.getElementById('button6');
   let colorPicker = document.getElementById('color-picker');
-  let button7 = document.getElementById('button7')
+  let button7 = document.getElementById('button7');
+  let button8 = document.getElementById('button8');
+  let button9 = document.getElementById('button9');
+  let button10 = document.getElementById('button10');
+
 
   button3.addEventListener('click', shade1);
   button4.addEventListener('click', shade2);
@@ -188,10 +282,13 @@ function switchShade() {
   button6.addEventListener('click', shade4);
   colorPicker.addEventListener('input', shade5);
   button7.addEventListener('click', shade5);
+  button8.addEventListener('click', shade6);
+  button9.addEventListener('click', shade7);
+  button10.addEventListener('click', shade8);
+
 
 
 }
-
 switchShade();
 
 
