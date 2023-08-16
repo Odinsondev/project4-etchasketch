@@ -1,3 +1,4 @@
+
 html, body {
   height: 100%;
 }
@@ -22,7 +23,7 @@ body {
 }
 
 .text1 {
-  font-family: 'Fugaz One';
+  font-family: 'Fugaz One', Roboto, sans-serif;
   color: #e1f684;
   font-size: 48px;
   margin: 10px 0px 0px 0px;
@@ -105,7 +106,6 @@ button:active {
   width: 63px;
   font-size: 12px;
 }
-
 
 .grid-container {
   align-self: center;
